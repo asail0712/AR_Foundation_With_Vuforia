@@ -17,8 +17,12 @@ public class SceneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
-		{
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+#else
+		if (Input.touchCount == 2)
+#endif
+        { 
             SceneManager.LoadSceneAsync(0);
         }
     }

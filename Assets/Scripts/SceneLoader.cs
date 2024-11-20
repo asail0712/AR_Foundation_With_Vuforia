@@ -12,7 +12,11 @@ public class SceneLoader : MonoBehaviour
 
 	private void Update()
 	{
+#if UNITY_EDITOR
 		if (Input.GetKeyDown(KeyCode.Alpha1))
+#else
+		if (Input.touchCount == 2)
+#endif
 		{
 			XRGeneralSettings xrSetting = XRGeneralSettings.Instance;
 
@@ -28,7 +32,11 @@ public class SceneLoader : MonoBehaviour
 			SceneManager.LoadSceneAsync(1);
 		}
 
+#if UNITY_EDITOR
 		if (Input.GetKeyDown(KeyCode.Alpha2))
+#else
+		if (Input.touchCount == 3)
+#endif
 		{
 			SceneManager.LoadSceneAsync(2);
 		}
